@@ -31,7 +31,7 @@ export default function Result() {
 
   useEffect(() => {
     const foo = async () => {
-      const res = await axios.get("http://localhost:5000/api/profile/top/10");
+      const res = await axios.get("https://back-the-sexiest.herokuapp.com/api/profile/top/10");
       setProfiles(res.data);
       setDisplayed_profile({ ...res.data[0] });
       const d_pics = randomNumbers(
