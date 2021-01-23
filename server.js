@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
   res.send("this is home");
 });
 const frontend_url = ["/","/play","/result"];
-app.get("frontend_url", function (req, res) {
+app.get(frontend_url, function (req, res) {
   res.sendFile(path.join(__dirname, "frontend",'build', 'index.html'));
 });
 // import routes
