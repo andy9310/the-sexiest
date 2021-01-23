@@ -1,9 +1,10 @@
 const express = require("express");
 const path = require('path');
 const port = process.env.PORT || 3000;
+
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname,"frontend", 'build')));
 
 const bodyParser = require("body-parser");
 const profilesRoute = require("./routes/profiles");
@@ -16,8 +17,9 @@ app.use("/api/profile", profilesRoute);
 app.get("/", (req, res) => {
   res.send("this is home");
 });
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+const frontend_url = ["/","/play","/result"]
+app.get(frontend_url, function (req, res) {
+  res.sendFile(path.join(__dirname, "frontend",'build', 'index.html'));
 });
 // import routes
 mongoose.connect(
