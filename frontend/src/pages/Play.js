@@ -21,7 +21,7 @@ export default function Play() {
   const [show_back_img2, setShow_back_img2] = useState(false);
 
   useEffect(() => {
-    axios.get("https://back-the-sexiest.herokuapp.com/api/profile/random/11").then((res) => {
+    axios.get("https://front-the-sexiest.herokuapp.com/api/profile/random/11").then((res) => {
       for (let i = 0; i < res.data.length; i++) {
         res.data[i]["clickCnt"] = 0;
         res.data[i]["showCnt"] = 0;
@@ -67,7 +67,7 @@ export default function Play() {
       for (let i = 0; i < profiles.current.length; i++) {
         ps.push(
           axios.patch(
-            `https://back-the-sexiest.herokuapp.com/api/profile/${profiles.current[i]["name"]}`,
+            `https://front-the-sexiest.herokuapp.com/api/profile/${profiles.current[i]["name"]}`,
             {
               showCnt: profiles.current[i]["showCnt"],
               clickCnt: profiles.current[i]["clickCnt"],
